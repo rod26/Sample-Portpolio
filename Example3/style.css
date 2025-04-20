@@ -1,0 +1,245 @@
+/* Reset & Global Styles */
+* {
+  margin: 0; /* Removes default outer spacing from all elements */
+  padding: 0; /* Removes default inner spacing from all elements */
+  box-sizing: border-box; /* Ensures padding and borders are included in the element's total width and height */
+}
+
+/* Reset default spacing and box model for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base styling for body */
+body {
+  font-family: "Roboto", sans-serif; /* Sets a clean, modern font for all text */
+  background: #f4f4f4; /* Light gray background for the whole page */
+  color: #333; /* Dark gray text for readability */
+  line-height: 1.6; /* Spacing between lines for better readability */
+}
+
+/* Container class used to wrap content and center it with max width */
+.container {
+  width: 90%; /* Makes content responsive and not too wide on small screens */
+  max-width: 1200px; /* Prevents container from stretching too wide on large screens */
+  margin: 0 auto; /* Centers the container horizontally */
+}
+
+/* ======================== */
+/* Header Section           */
+/* ======================== */
+header {
+  background: #2c3e50; /* Dark background for header */
+  padding: 20px 0; /* Adds vertical spacing inside the header */
+  position: sticky; /* Keeps the header fixed at the top when scrolling */
+  top: 0; /* Sticks to the top of the page */
+  z-index: 1000; /* Ensures it stays on top of other elements */
+}
+
+/* Layout for header content */
+.header-container {
+  display: flex; /* Horizontal layout for header content */
+  justify-content: space-between; /* Places site title and nav at opposite ends */
+  align-items: center; /* Vertically centers items */
+}
+
+/* Styles for site title/logo */
+#site-title {
+  font-family: "Montserrat", sans-serif; /* Stylish and bold font for branding */
+  color: #ecf0f1; /* Light color for contrast against dark background */
+  font-size: 2rem; /* Large text size for visibility */
+  letter-spacing: 1px; /* Adds spacing between letters */
+  text-decoration: none; /* Removes underline from title if it's a link */
+}
+
+/* Styles for nav list */
+nav ul {
+  list-style: none; /* Removes default bullet points */
+  display: flex; /* Arranges nav items horizontally */
+  gap: 20px; /* Adds space between nav links */
+}
+
+/* Styles for individual nav links */
+nav ul li a {
+  color: #bdc3c7; /* Light gray text for nav links */
+  text-decoration: none; /* Removes underline */
+  font-weight: 500; /* Medium weight for better emphasis */
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+/* Hover and active state styles for nav links */
+nav ul li a:hover,
+nav ul li a.active {
+  color: #ecf0f1; /* Brightens link color on hover or active state */
+}
+
+/* ======================== */
+/* Hero Section             */
+/* ======================== */
+.hero {
+  position: relative; /* Allows positioning of overlay inside */
+  background: url("https://picsum.photos/1600/900?random=5") no-repeat center
+    center/cover; /* Sets a full-screen background image */
+  height: 100vh; /* Takes full viewport height */
+  display: flex; /* Centers content with flexbox */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff; /* White text for contrast */
+}
+
+/* Overlay for darkening the background image */
+.hero-overlay {
+  position: absolute; /* Covers the hero area */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 102, 204, 0.7); /* Blue overlay with transparency */
+}
+
+/* Ensures hero text appears above overlay */
+.hero-content {
+  position: relative;
+  z-index: 1; /* Places content above the overlay */
+}
+
+/* Hero section heading */
+.hero h2 {
+  font-size: 3rem; /* Large text for a bold welcome message */
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+/* Hero section paragraph */
+.hero p {
+  font-size: 1.5rem; /* Slightly smaller than heading but still prominent */
+}
+
+/* ======================== */
+/* Content Box Section      */
+/* ======================== */
+.content-box {
+  background: #fff; /* White background for readability */
+  margin: 40px 0; /* Space above and below content box */
+  padding: 40px 20px; /* Inner padding for content */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* ======================== */
+/* About Page               */
+/* ======================== */
+.about-content {
+  display: flex; /* Side-by-side layout for image and text */
+  align-items: center; /* Vertically aligns image and text */
+  gap: 20px; /* Space between image and text */
+  flex-wrap: wrap; /* Allows wrapping on small screens */
+}
+
+/* Profile image styling */
+.profile-pic {
+  border-radius: 50%; /* Makes the image circular */
+  width: 200px;
+  height: 200px;
+  object-fit: cover; /* Ensures image fills container without distortion */
+}
+
+/* ======================== */
+/* Projects Page            */
+/* ======================== */
+.project-item {
+  margin-bottom: 40px; /* Adds space between project entries */
+  text-align: center; /* Centers content */
+}
+
+.project-item h3 {
+  margin-bottom: 10px; /* Space below project title */
+}
+
+.project-item img {
+  width: 100%; /* Makes image responsive */
+  max-width: 800px; /* Prevents image from being too large */
+  border-radius: 8px; /* Rounds the image corners */
+  margin-bottom: 10px; /* Space below image */
+}
+
+/* ======================== */
+/* Contact Form             */
+/* ======================== */
+.contact-form {
+  max-width: 600px; /* Limits form width for better layout */
+  margin: 0 auto; /* Centers the form */
+}
+
+/* Form group wrapper */
+.contact-form .form-group {
+  margin-bottom: 15px; /* Adds space between each form field */
+}
+
+/* Label styles */
+.contact-form label {
+  display: block; /* Places label on its own line */
+  margin-bottom: 5px; /* Space below label */
+  font-weight: 500; /* Medium bold for clarity */
+}
+
+/* Input and textarea styles */
+.contact-form input,
+.contact-form textarea {
+  width: 100%; /* Full width input fields */
+  padding: 10px; /* Inner spacing */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 4px; /* Slightly rounded corners */
+  font-size: 1rem; /* Standard font size */
+}
+
+/* Submit button styling */
+.contact-form button {
+  display: block;
+  width: 100%; /* Full width for easy tapping */
+  padding: 12px;
+  border: none;
+  background: #1abc9c; /* Teal background color */
+  color: #fff; /* White text */
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background 0.3s ease; /* Smooth hover transition */
+}
+
+.contact-form button:hover {
+  background: #16a085; /* Darker teal on hover */
+}
+
+/* ======================== */
+/* Footer Section           */
+/* ======================== */
+footer {
+  background: #2c3e50; /* Matches header color */
+  color: #bdc3c7; /* Light gray text */
+  text-align: center; /* Centers all footer content */
+  padding: 20px 0; /* Vertical padding */
+}
+
+/* ======================== */
+/* Responsive Design        */
+/* ======================== */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column; /* Stacks header elements vertically on small screens */
+    text-align: center; /* Centers text for better mobile layout */
+  }
+
+  nav ul {
+    flex-direction: column; /* Stacks nav links vertically */
+    gap: 10px; /* Less space between links */
+    margin-top: 10px; /* Adds space above nav list */
+  }
+
+  .about-content {
+    flex-direction: column; /* Stacks image and text vertically */
+    align-items: center; /* Centers content */
+  }
+}

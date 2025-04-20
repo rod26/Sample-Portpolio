@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dark-Themed Responsive Website</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header id="home">
+      <div class="container">
+        <!-- LOGO -->
+        <div class="logo">
+          <a href="#home">MyLogo</a>
+        </div>
+        <!-- NAVIGATION -->
+        <nav>
+          <div class="menu-toggle" id="mobile-menu">&#9776;</div>
+          <ul id="nav-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO SECTION (SLIDER) -->
+    <section class="hero">
+      <img
+        id="hero-img"
+        src="https://picsum.photos/seed/hero1/1920/800"
+        alt="Hero Image"
+      />
+      <div class="hero-text">
+        <h1>Welcome to Our Site</h1>
+        <p>Experience innovation and creativity</p>
+        <a href="#about" class="btn">Discover More</a>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+      <h2>About Us</h2>
+      <div class="about-container">
+        <div class="about-text">
+          <p>
+            We are a forward-thinking company that values creativity,
+            innovation, and excellence. Our dedicated team is committed to
+            delivering top-quality services and products that exceed
+            expectations.
+          </p>
+        </div>
+        <div class="about-image">
+          <img
+            src="https://picsum.photos/seed/about/800/600"
+            alt="About Image"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services">
+      <h2>Our Services</h2>
+      <div class="services-container">
+        <div class="service-item">
+          <img
+            src="https://picsum.photos/seed/service1/400/300"
+            alt="Service One"
+          />
+          <h3>Service One</h3>
+          <p>Innovative solutions tailored to your needs.</p>
+        </div>
+        <div class="service-item">
+          <img
+            src="https://picsum.photos/seed/service2/400/300"
+            alt="Service Two"
+          />
+          <h3>Service Two</h3>
+          <p>Expert guidance to drive your success.</p>
+        </div>
+        <div class="service-item">
+          <img
+            src="https://picsum.photos/seed/service3/400/300"
+            alt="Service Three"
+          />
+          <h3>Service Three</h3>
+          <p>Creative strategies for modern challenges.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section id="portfolio">
+      <h2>Our Portfolio</h2>
+      <div class="portfolio-container">
+        <img src="https://picsum.photos/seed/port1/400/300" alt="Portfolio 1" />
+        <img src="https://picsum.photos/seed/port2/400/300" alt="Portfolio 2" />
+        <img src="https://picsum.photos/seed/port3/400/300" alt="Portfolio 3" />
+        <img src="https://picsum.photos/seed/port4/400/300" alt="Portfolio 4" />
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <div class="contact-container">
+        <form
+          action="mailto:your.email@example.com"
+          method="post"
+          enctype="text/plain"
+        >
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            required
+          ></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy; 2025 MyWebsite. All rights reserved.</p>
+      <ul>
+        <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+        <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+      </ul>
+    </footer>
+
+    <!-- JAVASCRIPT: SLIDER & MOBILE MENU -->
+    <script>
+      // HERO IMAGE SLIDER
+      document.addEventListener("DOMContentLoaded", function () {
+        const images = [
+          "https://picsum.photos/seed/hero1/1920/800",
+          "https://picsum.photos/seed/hero2/1920/800",
+          "https://picsum.photos/seed/hero3/1920/800",
+        ];
+        let current = 0;
+        const heroImg = document.getElementById("hero-img");
+
+        setInterval(() => {
+          current = (current + 1) % images.length;
+          heroImg.style.opacity = 0;
+          setTimeout(() => {
+            heroImg.src = images[current];
+            heroImg.style.opacity = 1;
+          }, 500);
+        }, 2000);
+      });
+
+      // MOBILE MENU TOGGLE
+      const menuToggle = document.getElementById("mobile-menu");
+      const navList = document.getElementById("nav-list");
+
+      menuToggle.addEventListener("click", () => {
+        navList.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

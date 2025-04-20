@@ -1,0 +1,152 @@
+/* Reset some default styles */
+/* 
+  Apply to all elements (*) to ensure consistent spacing and layout across browsers.
+  This is part of a common CSS reset.
+*/
+* {
+  margin: 0; /* Removes default margin from all elements */
+  padding: 0; /* Removes default padding from all elements */
+  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Sets a clean, modern font stack */
+  line-height: 1.6; /* Increases line spacing for better readability */
+  background-color: #f4f4f4; /* Sets a light gray background color */
+  color: #333; /* Sets the text color to dark gray for good contrast */
+}
+
+.container {
+  width: 90%; /* Sets the container width to 90% of the screen */
+  max-width: 1000px; /* Limits the maximum width to 1000px for better readability on large screens */
+  margin: auto; /* Centers the container horizontally */
+  padding: 20px; /* Adds space inside the container on all sides */
+}
+
+header {
+  background-color: #2c3e50; /* Sets a dark blue-gray background color */
+  color: #fff; /* Sets the text color to white for contrast */
+  padding: 40px 0; /* Adds 40px padding to the top and bottom, 0 on the sides */
+  text-align: center; /* Centers the text horizontally */
+}
+
+.tagline {
+  font-size: 1.2rem; /* Sets font size to 1.2rem (1rem = root font size, usually 16px; 1.2rem = ~19.2px).
+                           Using rem makes the text scale better across devices and improves accessibility. */
+  color: #ccc; /* Sets the text color to light gray */
+}
+
+nav {
+  background: #34495e; /* Sets a dark bluish-gray background color for the navigation bar */
+}
+
+nav ul {
+  list-style: none; /* Removes default bullet points from the list */
+  display: flex; /* Displays list items in a horizontal row using Flexbox */
+  justify-content: center; /* Centers the list items horizontally within the nav bar */
+  padding: 10px 0; /* Adds 10px padding on top and bottom, 0 on the sides */
+}
+
+nav ul li {
+  margin: 0 15px; /* Adds horizontal spacing: 15px on the left and right, 0 on top and bottom */
+}
+
+nav ul li a {
+  color: white; /* Sets the link text color to white */
+  text-decoration: none; /* Removes the default underline from links */
+  font-weight: bold; /* Makes the link text bold for emphasis */
+}
+
+nav ul li a:hover {
+  text-decoration: underline; /* Adds an underline when the user hovers over a link */
+}
+
+main {
+  background-color: white; /* Sets the background color of the main content to white */
+  padding: 30px; /* Adds space inside the main section */
+  margin-top: 20px; /* Adds space above the main section */
+  border-radius: 8px; /* Rounds the corners of the main section */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a soft shadow for a subtle 3D effect */
+}
+
+section {
+  margin-bottom: 30px; /* Adds space below each section to separate them visually */
+}
+
+.projects-list li {
+  margin-bottom: 10px; /* Adds space below each project item for better readability */
+}
+
+aside {
+  background-color: #ecf0f1; /* Sets a light gray background for contrast */
+  padding: 20px; /* Adds space inside the aside box */
+  margin-top: 20px; /* Adds space above the aside section */
+  border-left: 4px solid #3498db; /* Adds a blue left border for visual emphasis */
+  border-radius: 4px; /* Slightly rounds the corners for a softer look */
+}
+
+footer {
+  background-color: #2c3e50; /* Sets a dark background to match the header/nav */
+  color: white; /* Sets the text color to white for contrast */
+  padding: 20px 0; /* Adds vertical padding (top and bottom), 0 on the sides */
+  text-align: center; /* Centers all footer text horizontally */
+  margin-top: 40px; /* Adds space above the footer to separate it from the content */
+}
+
+footer a {
+  color: #1abc9c; /* Sets the link color to a bright teal for visibility and style */
+  text-decoration: none; /* Removes the default underline from the link */
+}
+
+footer a:hover {
+  text-decoration: underline; /* Adds underline when the user hovers over the link for visual feedback */
+}
+
+/* Container styling (optional) */
+#contact .container {
+  max-width: 600px;
+  margin: 0 auto; /* Centers the container on the page */
+  padding: 20px;
+  text-align: center; /* Centers the text, optional */
+}
+
+/* Contact Form */
+form {
+  display: flex;
+  flex-direction: column; /* Stacks items vertically */
+  align-items: flex-start; /* Aligns labels and inputs to the left */
+  gap: 10px; /* Spacing between form elements */
+  margin: 20px auto; /* Adds space above/below the form */
+  width: 100%;
+  max-width: 400px; /* Limits the width so it doesn't stretch too far */
+}
+
+/* Labels and Inputs */
+form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+form input,
+form textarea {
+  width: 100%; /* Makes inputs stretch to the container width */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Submit Button */
+form button {
+  align-self: center; /* Centers the button horizontally within the form */
+  padding: 10px 20px;
+  border: none;
+  background-color: #007acc;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+form button:hover {
+  background-color: #005b99;
+}

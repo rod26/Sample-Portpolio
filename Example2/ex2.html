@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juan Dela Cruz | Portfolio</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- External CSS Link -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="header-container container">
+        <h1 id="site-title">Juan Dela Cruz</h1>
+        <nav>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-overlay"></div>
+      <div class="hero-content container">
+        <h2>Welcome!</h2>
+        <p class="intro highlight">
+          Crafting visually stunning and intuitive websites that make an impact.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+      <!-- About Me Section -->
+      <section id="about" class="content-box">
+        <div class="container">
+          <h2>About Me</h2>
+          <p>
+            I'm Juan Dela Cruz, a dedicated web developer with a passion for
+            building engaging digital experiences. With a solid foundation in
+            modern web technologies and a drive for continuous innovation, I
+            focus on creating clean, responsive, and user-friendly designs.
+          </p>
+          <!-- Example Image -->
+          <img
+            src="https://picsum.photos/800/400?image=1050"
+            alt="Coding"
+            class="content-img"
+          />
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="content-box">
+        <div class="container">
+          <h2>My Recent Projects</h2>
+          <ul class="projects-list">
+            <li>
+              <strong>Project 1:</strong> A dynamic e-commerce platform with an
+              intuitive interface inspired by Amazon.
+            </li>
+            <li>
+              <strong>Project 2:</strong> A sleek personal blog featuring modern
+              design aesthetics similar to Medium.
+            </li>
+          </ul>
+          <!-- Example Image -->
+          <img
+            src="https://picsum.photos/800/400?image=1067"
+            alt="Web Design"
+            class="content-img"
+          />
+        </div>
+      </section>
+    </main>
+
+    <!-- Quick Facts Section -->
+    <aside class="content-box" id="quick-facts">
+      <div class="container">
+        <h3>Quick Facts</h3>
+        <ul>
+          <li>💻 Proficient in HTML, CSS, JavaScript, and React</li>
+          <li>🌐 Passionate about responsive, user-centric design</li>
+          <li>
+            🎯 Driven by the motto: "Kapag may tiyaga, may nilaga" — where hard
+            work pays off!
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Contact Section -->
+    <footer id="contact">
+      <div class="container">
+        <h2>Contact Me</h2>
+        <p>
+          Have a project in mind? Let's work together. Fill out the form below
+          or email me directly at
+          <a href="mailto:juan.delacruz.dev@example.com"
+            >juan.delacruz.dev@example.com</a
+          >
+        </p>
+        <form action="#" method="post">
+          <!-- Each form field in its own .form-group -->
+          <div class="form-group">
+            <label for="username">Name:</label>
+            <input type="text" id="username" name="username" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+
+          <button type="submit">Submit</button>
+        </form>
+        <p>&copy; 2025 Juan Dela Cruz. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

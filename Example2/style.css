@@ -1,0 +1,278 @@
+/* Reset & Global Styles */
+* {
+  margin: 0; /* Removes default margin from all elements */
+  padding: 0; /* Removes default padding from all elements */
+  box-sizing: border-box; /* Includes padding and border in the element’s total width and height */
+}
+
+body {
+  font-family: "Roboto", sans-serif; /* Sets the main font to Roboto; uses a clean sans-serif fallback */
+  line-height: 1.6; /* Increases space between lines for better readability */
+  color: #333; /* Sets the default text color to dark gray */
+  background-color: #f4f4f4; /* Sets a light gray background for a clean, soft look */
+}
+
+/* Container */
+.container {
+  width: 90%; /* Sets the container to take up 90% of the screen width */
+  max-width: 1200px; /* Limits the container's width to 1200px on large screens */
+  margin: 0 auto; /* Centers the container horizontally */
+}
+
+/* Header & Navigation */
+header {
+  background-color: #2c3e50; /* Sets a dark background color for the header */
+  padding: 20px 0; /* Adds vertical padding (top and bottom) to give space inside the header */
+  position: sticky; /* Keeps the header visible at the top while scrolling */
+  top: 0; /* Sticks the header to the top of the viewport */
+  z-index: 1000; /* Ensures the header stays above other elements */
+}
+
+.header-container {
+  display: flex; /* Uses Flexbox to arrange child elements horizontally */
+  align-items: center; /* Vertically centers items within the container */
+  justify-content: space-between; /* Places items at the start and end (like logo on the left, nav on the right) */
+}
+
+#site-title {
+  font-family: "Montserrat", sans-serif; /* Uses a modern, bold font for the site title */
+  font-size: 2rem; /* Sets the font size to 2rem (usually 32px for emphasis) */
+  color: #ecf0f1; /* Sets a light text color for contrast against dark backgrounds */
+  letter-spacing: 1px; /* Adds slight spacing between letters for a cleaner look */
+}
+
+nav ul {
+  list-style: none; /* Removes default bullet points from the list */
+  display: flex; /* Displays list items horizontally using Flexbox */
+  gap: 20px; /* Adds 20px of space between each list item */
+}
+
+nav a {
+  color: #bdc3c7; /* Sets the link text color to a soft gray */
+  text-decoration: none; /* Removes the underline from links */
+  font-weight: 500; /* Sets a medium font weight for better readability */
+  transition: color 0.3s ease; /* Smoothly animates the color change on hover over 0.3 seconds */
+}
+
+nav a:hover {
+  color: #ecf0f1; /* Changes link color to a lighter shade when hovered for better visibility and feedback */
+}
+
+/* Hero Section */
+.hero {
+  position: relative; /* Allows absolute-positioned elements inside if needed (like overlays or buttons) */
+
+  background: url("https://picsum.photos/1600/900?image=1074") no-repeat center
+    center/cover;
+  /* Sets a full-width background image, centers it, and covers the entire section */
+
+  height: 100vh; /* Sets the height to 100% of the viewport height */
+
+  display: flex; /* Uses Flexbox to center content inside the hero section */
+  align-items: center; /* Vertically centers the content */
+  justify-content: center; /* Horizontally centers the content */
+  text-align: center; /* Centers the text */
+  color: #fff; /* Sets the text color to white for contrast against the background image */
+}
+
+.hero-overlay {
+  position: absolute; /* Positions the overlay on top of the hero section */
+  top: 0;
+  left: 0;
+  width: 100%; /* Covers the full width of the hero section */
+  height: 100%; /* Covers the full height of the hero section */
+  background: rgba(
+    0,
+    102,
+    204,
+    0.7
+  ); /* Adds a semi-transparent blue overlay for better text contrast */
+}
+
+.hero-content {
+  position: relative; /* Needed to layer it above the .hero-overlay */
+  z-index: 1; /* Places the content above the overlay (which has a lower z-index by default) */
+}
+
+.hero h2 {
+  font-size: 3rem; /* Sets a large font size for the hero heading (usually around 48px) */
+  margin-bottom: 20px; /* Adds space below the heading to separate it from other content (e.g., buttons) */
+}
+
+.intro.highlight {
+  font-size: 1.5rem; /* Sets a larger font size (usually around 24px) for emphasis */
+  font-style: italic; /* Italicizes the text for stylistic effect */
+  font-weight: 700; /* Makes the text bold for strong emphasis */
+}
+
+/* Content Boxes */
+.content-box {
+  background-color: #fff; /* Sets the background to white for a clean look */
+  margin: 40px 0; /* Adds vertical spacing above and below the box */
+  padding: 40px 20px; /* Adds inner spacing (top/bottom: 40px, left/right: 20px) */
+  border-radius: 8px; /* Rounds the corners for a smooth, modern feel */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adds a soft shadow to give a subtle 3D effect */
+}
+
+.content-box h2,
+.content-box h3 {
+  margin-bottom: 20px; /* Adds space below the heading to separate it from the content */
+  color: #2c3e50; /* Sets a dark blue-gray color for the text to match the theme */
+  text-align: center; /* Centers the heading text inside the content box */
+}
+
+.content-box p,
+.content-box ul {
+  font-size: 1rem; /* Sets a standard font size (usually 16px) for readability */
+  color: #555; /* Uses a medium-dark gray for comfortable reading */
+  text-align: center; /* Centers the text and list items inside the content box */
+  margin-bottom: 20px; /* Adds spacing below each paragraph or list to separate elements */
+}
+
+.content-img {
+  width: 100%; /* Makes the image responsive, filling its container's width */
+  max-width: 800px; /* Limits the image's maximum width to prevent it from being too large */
+  margin: 20px auto; /* Adds vertical spacing and centers the image horizontally */
+  display: block; /* Allows margin auto to work (images are inline by default) */
+  border-radius: 8px; /* Rounds the corners of the image for a smooth, modern look */
+}
+
+/* Projects List */
+.projects-list {
+  list-style: disc; /* Uses bullet points for each list item */
+  margin: 0 auto 20px auto; /* Centers the list and adds space below */
+  padding: 0 0 0 20px; /* Adds left padding to align bullets properly */
+  text-align: left; /* Aligns text to the left so bullets display correctly */
+  max-width: 800px; /* Limits the list width for better readability */
+}
+
+/* Quick Facts */
+aside#quick-facts ul {
+  list-style: none; /* Removes default bullet points from the list */
+  padding: 0; /* Removes default padding to keep it clean and aligned */
+  text-align: center; /* Centers the list items horizontally */
+}
+
+aside#quick-facts ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+aside#quick-facts ul {
+  list-style: none; /* Removes default bullet points from the list */
+  padding: 0; /* Removes default padding for a cleaner layout */
+  text-align: center; /* Centers all list items horizontally */
+}
+
+/* Contact Section */
+footer {
+  background-color: #2c3e50; /* Sets a dark background color for the footer */
+  color: #bdc3c7; /* Sets the text color to a light gray for readability */
+  padding: 40px 20px; /* Adds space inside the footer (top/bottom: 40px, left/right: 20px) */
+  text-align: center; /* Centers all footer text and elements */
+}
+
+footer h2 {
+  margin-bottom: 20px; /* Adds space below the heading to separate it from other content */
+  font-family: "Montserrat", sans-serif; /* Uses a clean, modern font for the heading */
+  font-size: 2rem; /* Sets the font size to 2rem (usually around 32px) for emphasis */
+  color: #ecf0f1; /* Sets the text color to a light shade for contrast against the dark footer background */
+}
+
+footer p {
+  margin-bottom: 20px; /* Adds spacing below each paragraph to separate footer content neatly */
+}
+
+/* Contact Form */
+footer form {
+  max-width: 600px; /* Limits the form width for better readability */
+  margin: 0 auto 20px; /* Centers the form horizontally and adds space below it */
+  text-align: left; /* Aligns form labels and input fields to the left */
+  display: flex; /* Uses Flexbox to structure form elements */
+  flex-direction: column; /* Stacks form elements vertically */
+  gap: 20px; /* Adds space between each form element */
+}
+
+.form-group {
+  display: flex; /* Uses Flexbox to arrange elements */
+  flex-direction: column; /* Stacks the label and input vertically */
+  gap: 5px; /* Adds 5px space between the label and the input field */
+}
+
+footer label {
+  font-weight: 500; /* Makes the label text slightly bold for better readability */
+}
+
+footer input,
+footer textarea {
+  width: 100%; /* Makes input and textarea fields take up the full width of the form */
+  padding: 10px; /* Adds inner spacing for comfortable typing */
+  border: 1px solid #ccc; /* Sets a light gray border around the fields */
+  border-radius: 4px; /* Slightly rounds the corners for a modern, clean look */
+  font-size: 1rem; /* Sets a standard font size for readability (typically 16px) */
+}
+
+footer button {
+  align-self: flex-end; /* Aligns the button to the right inside the form */
+  width: auto; /* Button width adjusts to its content */
+  padding: 12px 20px; /* Adds space inside the button (top/bottom: 12px, sides: 20px) */
+  border: none; /* Removes default border */
+  background-color: #1abc9c; /* Sets a teal background color */
+  color: #fff; /* Sets the text color to white */
+  font-size: 1rem; /* Sets a standard font size (usually 16px) */
+  border-radius: 4px; /* Rounds the corners slightly */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+  transition: background-color 0.3s ease; /* Smooth color change when hovered */
+}
+
+footer button:hover {
+  background-color: #16a085; /* Darkens the button color slightly when hovered for visual feedback */
+}
+
+footer a {
+  color: #1abc9c; /* Sets link color to teal for visibility and brand consistency */
+  text-decoration: none; /* Removes the default underline */
+  transition: text-decoration 0.3s ease; /* Adds a smooth transition effect when the underline appears on hover */
+}
+
+footer a:hover {
+  text-decoration: underline; /* Adds an underline on hover to indicate the link is clickable */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column; /* Stack header elements vertically */
+    text-align: center; /* Center-align text for better mobile readability */
+  }
+
+  nav ul {
+    flex-direction: column; /* Stack nav links vertically */
+    gap: 10px; /* Reduce space between nav items */
+    margin-top: 10px; /* Add some space above the nav list */
+  }
+
+  .hero {
+    height: 60vh; /* Reduce hero section height on smaller screens */
+  }
+
+  .hero h2 {
+    font-size: 2.5rem; /* Slightly reduce heading size for better fit */
+  }
+
+  .intro.highlight {
+    font-size: 1.25rem; /* Adjust highlighted text size for readability */
+  }
+
+  .projects-list {
+    text-align: left; /* Keep project list left-aligned on small screens */
+    margin-left: auto; /* Center the list horizontally */
+    margin-right: auto;
+  }
+
+  footer button {
+    align-self: center; /* Center the button within the form */
+    width: 100%; /* Make the button full width for easier tapping */
+  }
+}
