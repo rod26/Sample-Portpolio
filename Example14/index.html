@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ana's Animated Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero d-flex align-items-center justify-content-center text-center text-light">
+    <div class="container">
+      <h1 class="display-4 animate-pop">Hi, I'm Ana! <span class="wave">👋</span></h1>
+      <p class="lead animate-fade">Creative Web Developer | Animation Enthusiast</p>
+      <a href="#projects" class="btn btn-outline-light mt-3 animate-bounce">View My Work</a>
+    </div>
+    <div class="blob"></div>
+  </section>
+
+  <!-- About Section -->
+ <section class="about py-5" id="about">
+  <div class="container">
+    <h2 class="text-center mb-4 animate-fade">About Me</h2>
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=500&h=500&q=80" 
+             class="img-fluid rounded-circle mx-auto d-block animate-fade" 
+             alt="Ana Avatar">
+      </div>
+      <div class="col-md-6 animate-slide">
+        <p>Hello! I'm Ana, a passionate web developer who loves creating beautiful, animated websites. I work with Bootstrap, CSS, JavaScript, and creative UI effects to build interactive user experiences.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- Projects Section -->
+  <section class="projects py-5 bg-light" id="projects">
+    <div class="container">
+      <h2 class="text-center mb-4 animate-fade">Projects</h2>
+      <div class="row g-4">
+       <div class="row g-4">
+  <div class="col-md-4 animate-hover">
+    <div class="card project-card h-100 shadow-sm">
+      <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&h=400&q=80" class="card-img-top" alt="Portfolio Website">
+      <div class="card-body">
+        <h5 class="card-title">Portfolio Website</h5>
+        <p class="card-text">My personal responsive and animated portfolio using Bootstrap.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 animate-hover">
+    <div class="card project-card h-100 shadow-sm">
+      <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=600&h=400&q=80" class="card-img-top" alt="Admin Dashboard">
+      <div class="card-body">
+        <h5 class="card-title">Admin Dashboard</h5>
+        <p class="card-text">Modern dashboard with animated graphs and dark theme.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 animate-hover">
+  <div class="card project-card h-100 shadow-sm">
+    <img src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=600&h=400&q=80" class="card-img-top" alt="Mobile App UI">
+    <div class="card-body">
+      <h5 class="card-title">Mobile App UI</h5>
+      <p class="card-text">A cute and clean UI design for a mobile productivity app.</p>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact py-5 text-white text-center" id="contact">
+    <div class="container">
+      <h2 class="mb-4 animate-fade">Get in Touch</h2>
+      <p class="mb-3 animate-slide">Feel free to contact me through my social handles!</p>
+      <div class="d-flex justify-content-center gap-4 animate-bounce">
+        <a href="#" class="text-white fs-3"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="text-white fs-3"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-white fs-3"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-3 bg-dark text-center text-white">
+    <p class="m-0">&copy; 2025 Ana's Portfolio. Made with ❤️ and Bootstrap.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

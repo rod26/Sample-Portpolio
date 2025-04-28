@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Superior Portfolio - Your Name</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap" rel="stylesheet">
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+  <!-- Custom Cursor -->
+  <div id="cursor"></div>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="blob"></div>
+    <div class="hero-content">
+      <h1>Hello, I'm <span>Your Name</span></h1>
+      <p>Superior Web Developer & Animator</p>
+      <a href="#projects" class="btn">Explore My Work</a>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Featured Projects</h2>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Project Alpha">
+        <div class="proj-info">
+          <h3>Project Alpha</h3>
+          <p>Interactive React & Three.js showcase</p>
+        </div>
+      </div>
+      <div class="proj-card">
+        <img src="https://images.unsplash.com/photo-1556761175-129418cb2dfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Project Beta">
+        <div class="proj-info">
+          <h3>Project Beta</h3>
+          <p>D3.js Data Visualization Suite</p>
+        </div>
+      </div>
+      <div class="proj-card">
+        <img src="https://images.unsplash.com/photo-1509223197845-458d87318791?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Project Gamma">
+        <div class="proj-info">
+          <h3>Project Gamma</h3>
+          <p>WebGL 3D Experience & Animations</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Key Skills</h2>
+    <div class="skills-wrap">
+      <div class="skill-circle" data-skill="HTML5" data-percent="90"></div>
+      <div class="skill-circle" data-skill="CSS3" data-percent="85"></div>
+      <div class="skill-circle" data-skill="JavaScript" data-percent="80"></div>
+      <div class="skill-circle" data-skill="React" data-percent="75"></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Your Name. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    });
+
+    // Skill circles animation
+    document.querySelectorAll('.skill-circle').forEach(circle => {
+      const percent = circle.dataset.percent;
+      circle.innerHTML = `<svg viewBox="0 0 36 36"><path class="bg" d="M18 2.0845a 15.9155 15.9155 0 1 0 0 31.831 a 15.9155 15.9155 0 1 0 0-31.831" /><path class="meter" style="stroke-dasharray: ${percent}, 100" d="M18 2.0845a 15.9155 15.9155 0 1 0 0 31.831 a 15.9155 15.9155 0 1 0 0-31.831" /><text x="18" y="20.35">${percent}%</text><text x="18" y="27" class="skill-label">${circle.dataset.skill}</text></svg>`;
+    });
+  </script>
+</body>
+</html>

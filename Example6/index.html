@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Portfolio - Your Name</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Animated Background -->
+  <div id="animated-bg"></div>
+
+  <header>
+    <div class="logo">YourName</div>
+    <div id="menu-toggle">☰</div>
+    <nav id="nav">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#portfolio">Work</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="section">
+    <div class="hero-content">
+      <h1 class="animated-text">I’m Your Name, <span>Animator & Developer</span></h1>
+      <p class="subheader">Crafting dynamic web experiences with code and creativity.</p>
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hero Image" class="hero-image">
+    </div>
+  </section>
+
+  <section id="portfolio" class="section">
+    <h2>Projects Showcase</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1556761175-129418cb2dfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Project Alpha">
+        <div class="card-content">
+          <h3>Project Alpha</h3>
+          <p>An animated UX prototype built in React and Framer Motion.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Project Beta">
+        <div class="card-content">
+          <h3>Project Beta</h3>
+          <p>Interactive data visualization with D3.js and CSS transitions.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1519337265831-281ec6cc8514?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Project Gamma">
+        <div class="card-content">
+          <h3>Project Gamma</h3>
+          <p>CSS3 3D animations and WebGL canvas effects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <h2>My Skills</h2>
+    <div class="skill-bars">
+      <div class="bar html"><span>HTML/CSS</span><div class="fill" data-percent="95%"></div></div>
+      <div class="bar js"><span>JavaScript</span><div class="fill" data-percent="90%"></div></div>
+      <div class="bar react"><span>React</span><div class="fill" data-percent="85%"></div></div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Get In Touch</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Your Name. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile Menu Toggle
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      document.getElementById('nav').classList.toggle('active');
+    });
+
+    // Skill Bars Animation on Scroll
+    const bars = document.querySelectorAll('.fill');
+    const options = { threshold: 0.5 };
+    const fillObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const bar = entry.target;
+          bar.style.width = bar.getAttribute('data-percent');
+          obs.unobserve(bar);
+        }
+      });
+    }, options);
+    bars.forEach(bar => fillObserver.observe(bar));
+  </script>
+</body>
+</html>

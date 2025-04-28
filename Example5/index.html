@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Portfolio - Your Name</title>
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">YourName</div>
+    <button id="nav-toggle">☰</button>
+    <nav>
+      <ul id="nav-menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle">Toggle Theme</button>
+  </header>
+  
+  <section class="hero" id="home">
+    <div>
+      <h1>Hello, I'm Your Name</h1>
+      <p>Front-End Developer | UI/UX Enthusiast</p>
+      <button class="btn-primary" onclick="document.getElementById('portfolio').scrollIntoView()">View Works</button>
+    </div>
+  </section>
+  
+  <main>
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <p style="max-width:600px; margin:0 auto; text-align:center;">
+        Passionate front-end developer crafting responsive, accessible, and engaging user experiences following international best practices.<br>
+        Skilled in HTML5, CSS3, JavaScript, and modern frameworks.
+      </p>
+    </section>
+    
+    <section id="portfolio">
+      <h2 class="section-title">Portfolio</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" alt="Project 1">
+          <div class="card-content">
+            <h3>Project One</h3>
+            <p>A responsive e-commerce platform built with HTML, CSS, and JavaScript.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=400&q=80" alt="Project 2">
+          <div class="card-content">
+            <h3>Project Two</h3>
+            <p>Interactive dashboard with real-time data visualizations using D3.js.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=400&q=80" alt="Project 3">
+          <div class="card-content">
+            <h3>Project Three</h3>
+            <p>Modern portfolio website featuring smooth animations and dark/light mode.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <ul style="display:flex; justify-content:center; flex-wrap:wrap; list-style:none; gap:1rem;">
+        <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>React</li><li>Vue.js</li><li>Accessibility</li><li>Responsive Design</li>
+      </ul>
+    </section>
+    
+    <section id="contact">
+      <h2 class="section-title">Contact Me</h2>
+      <form class="contact-form" action="mailto:youremail@example.com" method="POST" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 Your Name. All rights reserved.</p>
+    <div>
+      <a href="#">LinkedIn</a> |
+      <a href="#">GitHub</a> |
+      <a href="#">Twitter</a>
+    </div>
+  </footer>
+  
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => document.body.classList.toggle('dark'));
+
+    // Responsive Nav Toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+  </script>
+</body>
+</html>

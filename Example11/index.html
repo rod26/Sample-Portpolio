@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Superior Portfolio | Your Name</title>
+  <!-- GSAP for scroll animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <style>
+    /* ============ RESET & VARIABLES ============ */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --primary: #1a1a1a;
+      --accent: #00adee;
+      --light: #fafafa;
+      --transition: 0.4s ease;
+      --font-sans: 'Helvetica Neue', Arial, sans-serif;
+    }
+    body {
+      font-family: var(--font-sans);
+      color: var(--primary);
+      background: var(--light);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; width: 100%; height: auto; }
+
+    /* ============ NAVBAR ============ */
+    header {
+      position: fixed; width:100%; top:0; left:0;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      z-index:1000;
+    }
+    nav {
+      max-width: 1200px; margin: auto; padding: 1rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .logo { font-size:1.4rem; font-weight:bold; color: var(--accent);}
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a:hover { color: var(--accent); transition: var(--transition); }
+
+    /* ============ HERO ============ */
+    .hero {
+      height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: url('https://source.unsplash.com/random/1600x900?technology') center/cover no-repeat;
+      position: relative; text-align: center; color: white;
+    }
+    .hero::after {
+      content: ''; position:absolute; inset:0;
+      background: rgba(0,0,0,0.4);
+    }
+    .hero-content {
+      position: relative; max-width: 800px; padding: 0 1rem;
+      animation: fadeInScale 1s ease-out both;
+    }
+    .hero h1 { font-size: 3rem; margin-bottom:0.5rem; }
+    .hero p { font-size:1.2rem; opacity:0.9;}
+
+    /* ============ PROJECTS ============ */
+    #projects {
+      padding: 6rem 1rem 2rem; max-width:1200px; margin:auto;
+    }
+    #projects h2 { text-align:center; margin-bottom:2rem; font-size:2rem; color: var(--accent);}
+    .grid {
+      display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+      gap:2rem;
+    }
+    .card {
+      background:white; border-radius:1rem; overflow:hidden;
+      box-shadow:0 8px 16px rgba(0,0,0,0.1);
+      transform: translateY(40px); opacity:0;
+    }
+    .card img { height:200px; object-fit:cover; }
+    .card-content { padding:1rem; }
+    .card-content h3 { margin-bottom:0.5rem; color: var(--primary);}
+    .card-content p { font-size:0.95rem; margin-bottom:1rem;}
+    .card-content a {
+      display:inline-block; padding:0.5rem 1rem; border-radius:0.5rem;
+      background: var(--accent); color:white; transition: var(--transition);
+    }
+    .card-content a:hover { background: darken(var(--accent),10%); }
+
+    /* ============ FOOTER ============ */
+    footer {
+      text-align:center; padding:2rem 1rem; margin-top:4rem;
+      background: var(--primary); color:white;
+    }
+
+    /* ============ ANIMATIONS ============ */
+    @keyframes fadeInScale {
+      from { opacity:0; transform: scale(0.8); }
+      to   { opacity:1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav>
+      <div class="logo">YourName</div>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Hello, I’m Your Name</h1>
+      <p>Superior Expert in Web Development • Animations • Graphics</p>
+    </div>
+  </section>
+
+  <!-- PROJECTS GRID -->
+  <section id="projects">
+    <h2>Featured Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://source.unsplash.com/random/600x400?abstract" alt="Abstract Design">
+        <div class="card-content">
+          <h3>Project Alpha</h3>
+          <p>A cutting‑edge interactive web experience with custom animations.</p>
+          <a href="#">View Details →</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/random/600x400?code" alt="Code Snippet">
+        <div class="card-content">
+          <h3>Project Beta</h3>
+          <p>A dynamic dashboard built with React & GSAP for fluid animations.</p>
+          <a href="#">View Details →</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/random/600x400?design" alt="UI Design">
+        <div class="card-content">
+          <h3>Project Gamma</h3>
+          <p>Pixel‑perfect UI/UX design prototype with Figma and Lottie integration.</p>
+          <a href="#">View Details →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / FOOTER -->
+  <footer id="contact">
+    <p>Let’s build something extraordinary together.<br/>
+      <a href="mailto:youremail@example.com" style="color:var(--accent);">youremail@example.com</a>
+    </p>
+    <p>© 2025 Your Name. All rights reserved.</p>
+  </footer>
+
+  <!-- GSAP SCROLL REVEAL -->
+  <script>
+    window.addEventListener('load', () => {
+      gsap.utils.toArray('.card').forEach((card, i) => {
+        gsap.to(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+          },
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          delay: i * 0.2,
+          ease: "power3.out"
+        });
+      });
+    });
+  </script>
+</body>
+</html>

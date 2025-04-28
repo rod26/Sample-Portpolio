@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopMaster - Orders</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo">ShopMaster</div>
+    <ul class="nav">
+      <li class="nav-item"><a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+      <li class="nav-item active"><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+      <li class="nav-item"><a href="products.html"><i class="fas fa-box-open"></i> Products</a></li>
+      <li class="nav-item"><a href="customers.html"><i class="fas fa-users"></i> Customers</a></li>
+      <li class="nav-item"><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+      <li class="nav-item"><a href="settings.html"><i class="fas fa-cogs"></i> Settings</a></li>
+    </ul>
+  </aside>
+  <main>
+    <header>
+      <h1>Orders</h1>
+      <div class="profile">
+        <i class="fas fa-bell"></i>
+        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Admin Profile">
+      </div>
+    </header>
+    <section class="orders-list">
+      <h2>All Orders</h2>
+      <table>
+        <colgroup>
+          <col style="width: 10%;">
+          <col style="width: 25%;">
+          <col style="width: 20%;">
+          <col style="width: 15%;">
+          <col style="width: 20%;">
+          <col style="width: 10%;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#1050</td>
+            <td>Olivia Brown</td>
+            <td>2025-04-19</td>
+            <td>$320.00</td>
+            <td><span class="status processing">Processing</span></td>
+            <td><button class="btn-view">View</button></td>
+          </tr>
+          <tr>
+            <td>#1049</td>
+            <td>Liam Smith</td>
+            <td>2025-04-18</td>
+            <td>$150.75</td>
+            <td><span class="status delivered">Delivered</span></td>
+            <td><button class="btn-view">View</button></td>
+          </tr>
+          <tr>
+            <td>#1048</td>
+            <td>Emma Davis</td>
+            <td>2025-04-17</td>
+            <td>$450.50</td>
+            <td><span class="status pending">Pending</span></td>
+            <td><button class="btn-view">View</button></td>
+          </tr>
+          <tr>
+            <td>#1047</td>
+            <td>Noah Wilson</td>
+            <td>2025-04-16</td>
+            <td>$89.99</td>
+            <td><span class="status cancelled">Cancelled</span></td>
+            <td><button class="btn-view">View</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

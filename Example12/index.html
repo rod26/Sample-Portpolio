@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Animated Admin Dashboard with Navigation</title>
+  <!-- Google Font & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --sidebar-bg: #2B2E3B;
+      --card-bg: #1F2128;
+      --main-bg: #16171D;
+      --accent: #4ADE80;
+      --text: #E0E0E0;
+      --text-muted: #7A7C84;
+      --shadow: rgba(0,0,0,0.4);
+    }
+    body { font-family:'Poppins',sans-serif; background:var(--main-bg); color:var(--text); display:flex; height:100vh; overflow:hidden; }
+    a { color:inherit; text-decoration:none; }
+    /* Sidebar */
+    .sidebar { width:240px; background:var(--sidebar-bg); padding:2rem 1rem; display:flex; flex-direction:column; }
+    .sidebar h2 { color:var(--accent); text-align:center; margin-bottom:2rem; }
+    .nav-item { display:flex; align-items:center; gap:1rem; padding:.75rem 1rem; border-radius:6px; cursor:pointer; transition:background .2s; color:var(--text-muted); }
+    .nav-item.active, .nav-item:hover { background:var(--card-bg); color:var(--text); }
+    .nav-item i { width:20px; text-align:center; }
+    /* Main */
+    .main { flex:1; overflow-y:auto; }
+    .topbar { display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; background:var(--card-bg); box-shadow:0 2px 10px var(--shadow); position:sticky; top:0; z-index:10; }
+    .search { position:relative; }
+    .search input { padding:.5rem 2rem .5rem 1rem; width:200px; border:none; border-radius:4px; background:#262833; color:var(--text); transition:width .3s; }
+    .search input:focus { width:300px; outline:none; }
+    .search i { position:absolute; right:10px; top:50%; transform:translateY(-50%); color:var(--text-muted); }
+    .profile i { font-size:1.5rem; color:var(--text-muted); cursor:pointer; }
+    .page { display:none; padding:1rem 0; }
+    .page.active { display:block; }
+    /* Cards */
+    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.5rem; padding:2rem; }
+    .card { background:var(--card-bg); padding:1.5rem; border-radius:8px; box-shadow:0 4px 12px var(--shadow); opacity:0; transform:translateY(30px); transition:all .6s ease-out; }
+    .card.show { opacity:1; transform:translateY(0); }
+    .card .icon { font-size:2rem; color:var(--accent); }
+    .card .info { margin-left:1rem; }
+    .card .counter { font-size:2rem; font-weight:600; }
+    .card .info p { color:var(--text-muted); margin-top:4px; }
+    .card:hover { transform:translateY(-8px); }
+    /* Charts */
+    .charts { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; padding:0 2rem 2rem; }
+    .chart-box { background:var(--card-bg); padding:1rem; border-radius:8px; box-shadow:0 4px 12px var(--shadow); opacity:0; transform:translateY(30px); transition:all .6s ease-out; }
+    .chart-box.show { opacity:1; transform:translateY(0); }
+    .chart-box h3 { margin-bottom:1rem; color:var(--text-muted); }
+    /* Tables */
+    .table-section { padding:0 2rem 2rem; }
+    .table-section h3 { margin-bottom:1rem; color:var(--text-muted); opacity:0; transform:translateY(30px); transition:all .6s ease-out; }
+    .table-section h3.show { opacity:1; transform:translateY(0); }
+    table { width:100%; border-collapse:collapse; background:var(--card-bg); border-radius:8px; overflow:hidden; box-shadow:0 4px 12px var(--shadow); opacity:0; transform:translateY(30px); transition:all .6s ease-out; }
+    table.show { opacity:1; transform:translateY(0); }
+    th, td { padding:1rem; text-align:left; }
+    th { background:#262833; color:var(--text); }
+    tr:nth-child(even) { background:#1f2128; }
+    tr:hover { background:#34354a; }
+    /* Cursor */
+    .cursor { position:fixed; top:0; left:0; width:12px; height:12px; background:var(--accent); border-radius:50%; pointer-events:none; transform:translate(-50%,-50%); transition:transform .1s; mix-blend-mode:difference; z-index:999; }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>Admin</h2>
+    <div class="nav-item active" data-page="dashboard"><i class="fas fa-chart-pie"></i>Dashboard</div>
+    <div class="nav-item" data-page="products"><i class="fas fa-box-open"></i>Products</div>
+    <div class="nav-item" data-page="orders"><i class="fas fa-shopping-cart"></i>Orders</div>
+    <div class="nav-item" data-page="customers"><i class="fas fa-users"></i>Customers</div>
+    <div class="nav-item" data-page="analytics"><i class="fas fa-chart-line"></i>Analytics</div>
+    <div class="nav-item" data-page="settings"><i class="fas fa-cog"></i>Settings</div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <div class="search"><input type="text" placeholder="Search..." /><i class="fas fa-search"></i></div>
+      <div class="profile"><i class="fas fa-user-circle"></i></div>
+    </div>
+    <!-- Dashboard Page -->
+    <div id="dashboard" class="page active">
+      <div class="cards">
+        <div class="card" data-delay="0"><div style="display:flex;align-items:center;"><i class="fas fa-users icon"></i><div class="info"><div class="counter" data-target="1500">0</div><p>Users</p></div></div></div>
+        <div class="card" data-delay="100"><div style="display:flex;align-items:center;"><i class="fas fa-dollar-sign icon"></i><div class="info"><div class="counter" data-target="12500">0</div><p>Revenue</p></div></div></div>
+        <div class="card" data-delay="200"><div style="display:flex;align-items:center;"><i class="fas fa-shopping-bag icon"></i><div class="info"><div class="counter" data-target="320">0</div><p>Orders</p></div></div></div>
+        <div class="card" data-delay="300"><div style="display:flex;align-items:center;"><i class="fas fa-comments icon"></i><div class="info"><div class="counter" data-target="85">0</div><p>Feedbacks</p></div></div></div>
+      </div>
+      <div class="charts">
+        <div class="chart-box" data-delay="0"><h3>Sales Over Months</h3><canvas id="salesChart"></canvas></div>
+        <div class="chart-box" data-delay="100"><h3>Stock Levels</h3><canvas id="stockChart"></canvas></div>
+        <div class="chart-box" data-delay="200"><h3>Traffic Sources</h3><canvas id="trafficChart"></canvas></div>
+        <div class="chart-box" data-delay="300"><h3>User Sessions</h3><canvas id="sessionChart"></canvas></div>
+      </div>
+      <div class="table-section">
+        <h3 data-delay="400">Recent Orders</h3>
+        <table data-delay="400">
+          <thead><tr><th>Order ID</th><th>Customer</th><th>Status</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr><td>#1010</td><td>Alice</td><td>Shipped</td><td>$120.00</td></tr>
+            <tr><td>#1011</td><td>Bob</td><td>Processing</td><td>$75.50</td></tr>
+            <tr><td>#1012</td><td>Carol</td><td>Delivered</td><td>$210.30</td></tr>
+            <tr><td>#1013</td><td>David</td><td>Pending</td><td>$98.99</td></tr>
+            <tr><td>#1014</td><td>Eva</td><td>Cancelled</td><td>$0.00</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Products Page -->
+    <div id="products" class="page">
+      <h2 style="padding:2rem;color:var(--accent)">Product List</h2>
+      <table class="table-section show">
+        <thead><tr><th>ID</th><th>Name</th><th>Stock</th><th>Price</th></tr></thead>
+        <tbody>
+          <tr><td>P100</td><td>Widget A</td><td>80</td><td>$25.00</td></tr>
+          <tr><td>P101</td><td>Widget B</td><td>60</td><td>$35.00</td></tr>
+          <tr><td>P102</td><td>Widget C</td><td>120</td><td>$45.00</td></tr>
+          <tr><td>P103</td><td>Widget D</td><td>40</td><td>$55.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Orders Page -->
+    <div id="orders" class="page">
+      <h2 style="padding:2rem;color:var(--accent)">Order History</h2>
+      <table class="table-section show">
+        <thead><tr><th>Order#</th><th>Product</th><th>Qty</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>1001</td><td>Widget A</td><td>2</td><td>Shipped</td></tr>
+          <tr><td>1002</td><td>Widget B</td><td>1</td><td>Processing</td></tr>
+          <tr><td>1003</td><td>Widget C</td><td>3</td><td>Delivered</td></tr>
+          <tr><td>1004</td><td>Widget D</td><td>5</td><td>Pending</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Customers Page -->
+    <div id="customers" class="page">
+      <h2 style="padding:2rem;color:var(--accent)">Customers</h2>
+      <table class="table-section show">
+        <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Joined</th></tr></thead>
+        <tbody>
+          <tr><td>C001</td><td>Alice Smith</td><td>alice@example.com</td><td>2025-01-15</td></tr>
+          <tr><td>C002</td><td>Bob Johnson</td><td>bob@example.com</td><td>2025-02-10</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Analytics Page -->
+    <div id="analytics" class="page">
+      <h2 style="padding:2rem;color:var(--accent)">Analytics</h2>
+      <p style="padding:0 2rem;">Detailed analytics graphs and insights would go here.</p>
+    </div>
+    <!-- Settings Page -->
+    <div id="settings" class="page">
+      <h2 style="padding:2rem;color:var(--accent)">Settings</h2>
+      <p style="padding:0 2rem;">Application settings controls go here.</p>
+    </div>
+  </div>
+  <div class="cursor"></div>
+  <script>
+    // Cursor
+    document.addEventListener('mousemove', e => document.querySelector('.cursor').style.transform = `translate(${e.clientX}px,${e.clientY}px)`);
+    // Navigation
+    document.querySelectorAll('.nav-item').forEach(item => item.addEventListener('click', () => {
+      document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      const page = item.dataset.page;
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(page).classList.add('active');
+    }));
+    // Animate Dashboard on load
+    window.addEventListener('load', () => {
+      const varCSS = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+      // Cards
+      document.querySelectorAll('#dashboard .card').forEach((el, i) => {
+        setTimeout(() => el.classList.add('show'), 100 * i);
+        const c = el.querySelector('.counter');
+        const target = +c.dataset.target;
+        let count = 0;
+        const step = Math.ceil(target / 200);
+        const update = () => { count += step; c.textContent = count >= target ? target : count; if(count < target) requestAnimationFrame(update); };
+        setTimeout(update, 100 * i);
+      });
+      // Charts
+      const charts = [
+        { id: 'salesChart', type: 'line', labels:['Jan','Feb','Mar','Apr','May','Jun'], data:[1200,1900,3000,5000,2300,3400] },
+        { id: 'stockChart', type: 'bar', labels:['A','B','C','D','E'], data:[80,55,95,70,40] },
+        { id: 'trafficChart', type: 'pie', labels:['Direct','Social','Referral'], data:[45,30,25] },
+        { id: 'sessionChart', type: 'doughnut', labels:['Desktop','Mobile','Tablet'], data:[60,30,10] }
+      ];
+      charts.forEach((cfg, i) => {
+        setTimeout(() => {
+          document.querySelector(`#${cfg.id}`).parentNode.classList.add('show');
+          new Chart(document.getElementById(cfg.id).getContext('2d'), {
+            type: cfg.type,
+            data: { labels: cfg.labels, datasets:[{ label: cfg.id, data: cfg.data, backgroundColor: ['#4ADE80','#45A29E','#C5C6C7'], borderColor: varCSS('--accent'), fill: cfg.type==='line' } ] },
+            options:{ responsive:true, plugins:{legend:{display:!(cfg.type==='pie'||cfg.type==='doughnut')}}, scales: cfg.type==='line'||cfg.type==='bar'?{ x:{ grid:{display:false}, ticks:{color:varCSS('--text-muted')}}, y:{ grid:{color:'#262833'}, ticks:{color:varCSS('--text-muted')} }}:{} }
+          });
+        }, 100 * i);
+      });
+      // Table
+      setTimeout(() => document.querySelector('.table-section h3').classList.add('show'), 400);
+      setTimeout(() => document.querySelector('.table-section table').classList.add('show'), 500);
+    });
+  </script>
+</body>
+</html>

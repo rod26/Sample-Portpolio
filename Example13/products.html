@@ -1,0 +1,54 @@
+<!-- products.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopMaster - Products</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo">ShopMaster</div>
+    <ul class="nav">
+      <li class="nav-item"><a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+      <li class="nav-item"><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+      <li class="nav-item active"><a href="products.html"><i class="fas fa-box-open"></i> Products</a></li>
+      <li class="nav-item"><a href="customers.html"><i class="fas fa-users"></i> Customers</a></li>
+      <li class="nav-item"><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+      <li class="nav-item"><a href="settings.html"><i class="fas fa-cogs"></i> Settings</a></li>
+    </ul>
+  </aside>
+  <main>
+    <header>
+      <h1>Products</h1>
+      <div class="profile">
+        <i class="fas fa-bell"></i>
+        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Admin Profile">
+      </div>
+    </header>
+    <section class="products-list">
+      <h2>All Products</h2>
+      <table>
+        <colgroup>
+          <col style="width:10%;"><col style="width:35%;"><col style="width:20%;">
+          <col style="width:15%;"><col style="width:10%;"><col style="width:10%;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Product ID</th><th>Name</th><th>Category</th><th>Price</th><th>Stock</th><th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>P001</td><td>Wireless Mouse</td><td>Electronics</td><td>$25.99</td><td>In Stock</td><td><button class="btn-view">View</button></td></tr>
+          <tr><td>P002</td><td>Bluetooth Speaker</td><td>Electronics</td><td>$45.00</td><td>Low Stock</td><td><button class="btn-view">View</button></td></tr>
+          <tr><td>P003</td><td>Cotton T-Shirt</td><td>Clothing</td><td>$15.99</td><td>In Stock</td><td><button class="btn-view">View</button></td></tr>
+          <tr><td>P004</td><td>Ceramic Mug</td><td>Home & Garden</td><td>$12.50</td><td>Out of Stock</td><td><button class="btn-view">View</button></td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

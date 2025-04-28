@@ -1,0 +1,132 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo">ShopMaster</div>
+    <ul class="nav">
+    <li class="nav-item active"><a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+      <li class="nav-item"><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+      <li class="nav-item"><a href="products.html"><i class="fas fa-box-open"></i> Products</a></li>
+      <li class="nav-item"><a href="customers.html"><i class="fas fa-users"></i> Customers</a></li>
+      <li class="nav-item"><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+      <li class="nav-item"><a href="settings.html"><i class="fas fa-cogs"></i> Settings</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <header>
+      <h1>Dashboard</h1>
+      <div class="profile">
+        <i class="fas fa-bell"></i>
+        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Admin Profile">
+      </div>
+    </header>
+
+    <section class="cards">
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-dollar-sign"></i></div>
+        <div class="card-info">
+          <h2>$12,540</h2>
+          <p>Revenue Today</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-shopping-bag"></i></div>
+        <div class="card-info">
+          <h2>320</h2>
+          <p>New Orders</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-users"></i></div>
+        <div class="card-info">
+          <h2>1,200</h2>
+          <p>New Customers</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+        <div class="card-info">
+          <h2>75%</h2>
+          <p>Growth Rate</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="charts">
+      <div class="chart-container">
+        <canvas id="salesChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <canvas id="ordersChart"></canvas>
+      </div>
+    </section>
+
+    <section class="recent-orders">
+      <h2>Recent Orders</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Total</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>#1024</td><td>Alice Johnson</td><td>$240.00</td><td><span class="status delivered">Delivered</span></td></tr>
+          <tr><td>#1023</td><td>Michael Lee</td><td>$120.50</td><td><span class="status pending">Pending</span></td></tr>
+          <tr><td>#1022</td><td>Sarah Kim</td><td>$89.99</td><td><span class="status cancelled">Cancelled</span></td></tr>
+          <tr><td>#1021</td><td>David Park</td><td>$560.00</td><td><span class="status delivered">Delivered</span></td></tr>
+          <tr><td>#1020</td><td>Emma Watson</td><td>$75.25</td><td><span class="status processing">Processing</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <script>
+    // Sales Line Chart
+    new Chart(document.getElementById('salesChart'), {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          label: 'Revenue',
+          data: [1200, 1900, 1500, 2200, 2700, 3000, 3200],
+          fill: true,
+          tension: 0.4,
+          borderColor: '#4ADE80',
+          backgroundColor: 'rgba(74, 222, 128, 0.2)',
+          borderWidth: 2
+        }]
+      },
+      options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    // Orders Bar Chart
+    new Chart(document.getElementById('ordersChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Electronics', 'Clothing', 'Home', 'Beauty', 'Sports'],
+        datasets: [{
+          label: 'Orders',
+          data: [65, 59, 80, 81, 56],
+          borderWidth: 1
+        }]
+      },
+      options: { scales: { y: { beginAtZero: true } } }
+    });
+  </script>
+</body>
+</html>
